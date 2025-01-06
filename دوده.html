@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Game with Control Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        #gameArea {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #333;
+            margin: 20px auto;
+            position: relative;
+            background-color: #fff;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Live Game</h1>
+    <div id="gameArea"></div>
+    
+    <div>
+        <button class="button" onclick="moveUp()">Up</button>
+        <button class="button" onclick="moveDown()">Down</button>
+        <button class="button" onclick="moveLeft()">Left</button>
+        <button class="button" onclick="moveRight()">Right</button>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        let player = document.createElement('div');
+        player.style.width = '30px';
+        player.style.height = '30px';
+        player.style.backgroundColor = 'red';
+        player.style.position = 'absolute';
+        player.style.top = '135px';
+        player.style.left = '135px';
+        gameArea.appendChild(player);
+
+        function moveUp() {
+            let top = parseInt(player.style.top);
+            if (top > 0) {
+                player.style.top = (top - 10) + 'px';
+            }
+        }
+
+        function moveDown() {
+            let top = parseInt(player.style.top);
+            if (top < 270) {
+                player.style.top = (top + 10) + 'px';
+            }
+        }
+
+        function moveLeft() {
+            let left = parseInt(player.style.left);
+            if (left > 0) {
+                player.style.left = (left - 10) + 'px';
+            }
+        }
+
+        function moveRight() {
+            let left = parseInt(player.style.left);
+            if (left < 270) {
+                player.style.left = (left + 10) + 'px';
+            }
+        }
+    </script>
+
+</body>
+</html>
